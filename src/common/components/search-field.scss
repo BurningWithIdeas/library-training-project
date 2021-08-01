@@ -1,0 +1,17 @@
+.search-field {
+  position: relative;
+  width: 100%;
+
+  .search-field__button {
+    position: absolute;
+    height: 100%;
+    width: 44px;
+    transform: translate(-100%);
+
+    background: transparent;
+    border: 0;
+    font-size: 1.2rem;
+    padding-top: 3px;
+    cursor: pointer;
+  }
+}

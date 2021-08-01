@@ -1,0 +1,11 @@
+.form-field {
+  height: 40px;
+  width: 90%;
+  padding: 0 10px;
+  font-size: 1.4rem;
+
+  &:focus,
+  &:focus-visible {
+    outline: none !important;
+  }
+}

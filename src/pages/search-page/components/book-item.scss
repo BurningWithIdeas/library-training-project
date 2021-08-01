@@ -1,0 +1,37 @@
+.book-item {
+  width: 20%;
+  min-width: 250px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #e8e8e8;
+
+  .book-item__image {
+    width: 70%;
+    margin-top: 20px;
+
+    box-shadow: 10px 5px 20px grey;
+  }
+
+  .book-item__label {
+    width: 85%;
+
+    color: #a5a5a5;
+    font-family: system-ui;
+    font-weight: lighter;
+    font-size: 1.2rem;
+  }
+
+  .book-item__category {
+    text-decoration: underline;
+  }
+
+  .book-item__name {
+    color: black;
+    font-family: "coolvetica";
+    font-size: 1.4rem;
+  }
+}

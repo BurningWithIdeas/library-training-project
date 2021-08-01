@@ -1,0 +1,50 @@
+.books-list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-areas:
+    ". result ."
+    ". list ."
+    ". button .";
+  justify-items: center;
+  padding: 30px 0;
+
+  .books-list-wrapper__label {
+    grid-area: result;
+    text-align: center;
+    height: 70px;
+  }
+
+  .books-list {
+    grid-area: list;
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-around;
+    height: calc(100% + 50px);
+    margin-bottom: 50px;
+  }
+
+  .books-list-wrapper__button {
+    grid-area: button;
+    display: flex;
+    height: 50px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "coolvetica";
+    font-weight: lighter;
+    font-size: 1.5rem;
+    background: transparent;
+    color: grey;
+    border: 1px solid gray;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      color: black;
+      border: 1px solid black;
+    }
+  }
+}
