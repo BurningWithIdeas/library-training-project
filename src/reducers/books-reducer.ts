@@ -1,15 +1,14 @@
-import { ADD_BOOKS } from "../utils/ActionTypes";
-import Img1 from "Assets/book1.jpg";
+import { GET_BOOKS } from "../utils/actionTypes";
 import produce from "immer";
 
 let initState: BooksState = {
   booksArr: [
     {
       id: "1",
-      image: { Img1 },
-      name: "John Doe",
-      autor: ["Some Dude"],
-      category: ["Bestseller"],
+      image: "#",
+      title: "John Doe",
+      authors: ["Some Dude"],
+      categories: ["Bestseller"],
     },
   ],
 };
@@ -18,7 +17,7 @@ const templateReducer = (state = initState, action: Action) => {
   let stateCopy: BooksState;
 
   switch (action.type) {
-    case ADD_BOOKS:
+    case GET_BOOKS:
       stateCopy = produce(state, (newState: BooksState) => {
         newState.booksArr.push(...action.payload.booksArr);
       });

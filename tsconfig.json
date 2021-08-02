@@ -13,6 +13,8 @@
 
     "baseUrl": "./",
     "paths": {
+      "API/*": ["src/api/*"],
+      "Middleware/*": ["src/middleware/*"],
       "Common/*": ["src/common/*"],
       "Utils/*": ["src/utils/*"],
       "Assets/*": ["public/assets/*"],

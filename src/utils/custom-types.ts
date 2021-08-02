@@ -8,10 +8,10 @@ interface BooksState {
 
 interface Book {
   id: string;
-  name: string;
-  image: object;
-  category: Array<string>;
-  autor: Array<string>;
+  title: string;
+  image: string;
+  categories: Array<string>;
+  authors: Array<string>;
 }
 
 type BooksArr = Array<Book>;
@@ -28,10 +28,3 @@ interface Action {
 interface ProductActions {
   templateAction?: (id: number) => {};
 }
-
-//Props
-
-// interface TemplateItemComp {
-//   templateArr: TemplateArr;
-//   templateAction: (id: number) => {};
-// }

@@ -9,6 +9,8 @@ module.exports = {
   },
   resolve: {
     alias: {
+      API: path.resolve(__dirname, "src/api"),
+      Middleware: path.resolve(__dirname, "src/middleware"),
       Common: path.resolve(__dirname, "src/common"),
       Utils: path.resolve(__dirname, "src/utils"),
       Assets: path.resolve(__dirname, "public/assets"),

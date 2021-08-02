@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
-import store from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import store from "./store";
 import "./index.scss";
 import "Utils/fonts.scss";
 

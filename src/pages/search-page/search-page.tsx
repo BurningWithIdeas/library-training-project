@@ -1,21 +1,18 @@
 import React from "react";
 import SearchForm from "Common/components/search-form";
 import BooksList from "./components/books-list";
-import { addBooksAction } from "../../actions/books-actions";
+import { getBooksAsyncActionCreator } from "../../actions/books-actions";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 
 const mapStateToProps = (state: State) => ({
   booksArr: state.books.booksArr,
 });
 
-const mapDispatchToProps = (dispatch: any) =>
-  bindActionCreators(
-    {
-      addBooksAction,
-    },
-    dispatch
-  );
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getBooksAsyncActionCreator: () => dispatch(getBooksAsyncActionCreator()),
+  };
+};
 
 const BooksListContainer = connect(
   mapStateToProps,

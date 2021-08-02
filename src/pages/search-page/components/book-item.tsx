@@ -5,12 +5,12 @@ import "./book-item.scss";
 const BookItem = (book: Book) => {
   return (
     <div className="book-item">
-      <img src={Img1} alt="Image missing" className="book-item__image" />
+      <img src={book.image} alt="Image missing" className="book-item__image" />
       <span className="book-item__label book-item__category">
-        {book.category[0]}
+        {book.categories}
       </span>
-      <span className="book-item__label book-item__name">{book.name}</span>
-      <span className="book-item__label book-item__autor">{book.autor[0]}</span>
+      <span className="book-item__label book-item__name">{book.title}</span>
+      <span className="book-item__label book-item__autor">{book.authors}</span>
     </div>
   );
 };
