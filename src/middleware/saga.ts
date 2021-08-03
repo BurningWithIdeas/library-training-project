@@ -1,12 +1,13 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 import { ASYNC_GET_BOOKS } from "../utils/actionTypes";
 import { getBooksActionCreator } from "../actions/books-actions";
-import asyncGetBooksHandler from "API/google-books";
+import { booksRequest } from "API/google-books";
 
 function* asyncGetBooks() {
   try {
-    const response = yield call(asyncGetBooksHandler);
-    const newBooksArr = response.data.items.map((el: any) => {
+    const response = yield call(booksRequest);
+    const totalBooks = response.data.totalItems;
+    const booksArr = response.data.items.map((el: any) => {
       return {
         id: el.id,
         title: el.volumeInfo.title,
@@ -16,7 +17,7 @@ function* asyncGetBooks() {
       };
     });
 
-    yield put(getBooksActionCreator(newBooksArr));
+    yield put(getBooksActionCreator({ booksArr, totalBooks }));
   } catch (e) {
     console.log(e);
   }

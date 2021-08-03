@@ -14,6 +14,7 @@
     "baseUrl": "./",
     "paths": {
       "API/*": ["src/api/*"],
+      "Actions/*": ["src/actions/*"],
       "Middleware/*": ["src/middleware/*"],
       "Common/*": ["src/common/*"],
       "Utils/*": ["src/utils/*"],

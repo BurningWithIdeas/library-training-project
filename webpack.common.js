@@ -10,6 +10,7 @@ module.exports = {
   resolve: {
     alias: {
       API: path.resolve(__dirname, "src/api"),
+      Actions: path.resolve(__dirname, "src/actions"),
       Middleware: path.resolve(__dirname, "src/middleware"),
       Common: path.resolve(__dirname, "src/common"),
       Utils: path.resolve(__dirname, "src/utils"),

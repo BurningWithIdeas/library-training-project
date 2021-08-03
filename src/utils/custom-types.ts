@@ -4,6 +4,7 @@ interface State {
 
 interface BooksState {
   booksArr: BooksArr;
+  totalBooks: number;
 }
 
 interface Book {
@@ -16,15 +17,18 @@ interface Book {
 
 type BooksArr = Array<Book>;
 
+interface BooksSearchFilters {
+  title: string;
+  category: string;
+  sortBy: string;
+}
+
 //Actions
 
 interface Action {
   type: string;
   payload: {
     booksArr?: BooksArr;
+    totalBooks?: number;
   };
-}
-
-interface ProductActions {
-  templateAction?: (id: number) => {};
 }

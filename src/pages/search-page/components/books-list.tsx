@@ -1,30 +1,32 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import BookItem from "./book-item";
+import { getBooksAsyncActionCreator } from "Actions/books-actions";
 import "./books-list.scss";
 
-interface BooksListCompProps {
-  booksArr: BooksArr;
-  getBooksAsyncActionCreator(): void;
-}
+const BooksList = () => {
+  const booksArr = useSelector((state: State) => state.books.booksArr);
+  const totalBooks = useSelector((state: State) => state.books.totalBooks);
+  const dispatch = useDispatch();
 
-const BooksList = ({
-  booksArr,
-  getBooksAsyncActionCreator,
-}: BooksListCompProps) => {
   const BookItems = booksArr.map((book: Book) => {
     return <BookItem {...book} key={book.id} />;
   });
 
   return (
     <div className="books-list-wrapper">
-      <span className="books-list-wrapper__label">Found 1337 results</span>
+      <span className="books-list-wrapper__label">
+        Found {totalBooks} results
+      </span>
       <div className="books-list">{BookItems}</div>
-      <button
-        className="books-list-wrapper__button"
-        onClick={() => getBooksAsyncActionCreator()}
-      >
-        Show more
-      </button>
+      {BookItems.length > 0 ? (
+        <button
+          className="books-list-wrapper__button"
+          onClick={() => dispatch(getBooksAsyncActionCreator())}
+        >
+          Show more
+        </button>
+      ) : null}
     </div>
   );
 };

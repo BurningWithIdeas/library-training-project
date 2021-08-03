@@ -1,16 +1,9 @@
-import { GET_BOOKS } from "../utils/actionTypes";
+import { GET_BOOKS, CLEAR_BOOKS_LIST } from "Utils/actionTypes";
 import produce from "immer";
 
 let initState: BooksState = {
-  booksArr: [
-    {
-      id: "1",
-      image: "#",
-      title: "John Doe",
-      authors: ["Some Dude"],
-      categories: ["Bestseller"],
-    },
-  ],
+  booksArr: [],
+  totalBooks: 0,
 };
 
 const templateReducer = (state = initState, action: Action) => {
@@ -20,6 +13,14 @@ const templateReducer = (state = initState, action: Action) => {
     case GET_BOOKS:
       stateCopy = produce(state, (newState: BooksState) => {
         newState.booksArr.push(...action.payload.booksArr);
+        newState.totalBooks = action.payload.totalBooks;
+      });
+
+      return stateCopy;
+
+    case CLEAR_BOOKS_LIST:
+      stateCopy = produce(state, (newState: BooksState) => {
+        newState.booksArr = [];
       });
 
       return stateCopy;
