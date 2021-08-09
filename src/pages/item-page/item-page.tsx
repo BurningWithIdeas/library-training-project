@@ -1,0 +1,19 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import SearchForm from "Common/components/search-form";
+import ItemDescription from "./components/item-description";
+
+const ItemPage = (props: any) => {
+  const id = props.match.params.item;
+  const booksArr = useSelector((state: State) => state.books.booksArr);
+  const currentBook = booksArr.find((el) => el.id === id);
+
+  return (
+    <div className="item-page">
+      <SearchForm />
+      <ItemDescription {...currentBook} />
+    </div>
+  );
+};
+
+export default ItemPage;
