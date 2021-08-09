@@ -2,22 +2,7 @@ import { GET_BOOKS, CLEAR_BOOKS_LIST } from "Utils/actionTypes";
 import produce from "immer";
 
 let initState: BooksState = {
-  booksArr: [
-    {
-      id: "0",
-      title: "string",
-      image: "string",
-      categories: ["category"],
-      authors: ["author"],
-    },
-    {
-      id: "1",
-      title: "string",
-      image: "string",
-      categories: ["category"],
-      authors: ["author"],
-    },
-  ],
+  booksArr: [],
   totalBooks: 0,
 };
 

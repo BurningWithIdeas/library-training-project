@@ -5,6 +5,7 @@ import { booksRequest } from "API/google-books";
 
 function* asyncGetBooks() {
   try {
+    // @ts-ignore
     const response = yield call(booksRequest);
     const totalBooks = response.data.totalItems;
     const booksArr = response.data.items.map((el: any) => {

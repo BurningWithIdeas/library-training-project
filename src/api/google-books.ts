@@ -18,10 +18,6 @@ export function setFilters({ title, category, sortBy }: BooksSearchFilters) {
     filteredRequest += `&orderBy=${sortBy}`;
     filteredRequest += "&key=AIzaSyBFeGc1dlPmCJMD-uF2Z-8LxzsHA7r0owg";
 
-    debugger;
-
     return api.get(filteredRequest);
   };
 }
-
-//https://www.googleapis.com/books/v1/volumes?q=book&key=AIzaSyBFeGc1dlPmCJMD-uF2Z-8LxzsHA7r0owg

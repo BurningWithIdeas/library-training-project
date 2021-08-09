@@ -1,6 +1,8 @@
 import React from "react";
-import { Formik, Field } from "formik";
+import { Formik } from "formik";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Field from "./field";
 import LabeledField from "./labeled-field";
 import SearchField from "./search-field";
 import {
@@ -12,6 +14,7 @@ import "./search-form.scss";
 
 const SearchForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const categoriesArr = [
     "all",
@@ -45,6 +48,7 @@ const SearchForm = () => {
             dispatch(clearBooksListActionCreator());
             setFilters(data);
             dispatch(getBooksAsyncActionCreator());
+            history.push("/search");
           }}
         >
           {({ handleSubmit }) => (
