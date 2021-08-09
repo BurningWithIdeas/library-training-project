@@ -32,3 +32,8 @@ interface Action {
     totalBooks?: number;
   };
 }
+
+interface GetBooksActionInterface {
+  booksArr: BooksArr;
+  totalBooks: number;
+}
