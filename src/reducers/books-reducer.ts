@@ -6,7 +6,7 @@ let initState: BooksState = {
   totalBooks: 0,
 };
 
-const templateReducer = (state = initState, action: Action) => {
+const booksReducer = (state = initState, action: Action) => {
   let stateCopy: BooksState;
 
   switch (action.type) {
@@ -21,6 +21,7 @@ const templateReducer = (state = initState, action: Action) => {
     case CLEAR_BOOKS_LIST:
       stateCopy = produce(state, (newState: BooksState) => {
         newState.booksArr = [];
+        newState.totalBooks = 0;
       });
 
       return stateCopy;
@@ -29,4 +30,4 @@ const templateReducer = (state = initState, action: Action) => {
   }
 };
 
-export default templateReducer;
+export default booksReducer;

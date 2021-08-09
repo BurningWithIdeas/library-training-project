@@ -14,9 +14,11 @@ export function setFilters({ title, category, sortBy }: BooksSearchFilters) {
 
     let filteredRequest = `/books/v1/volumes?`;
     filteredRequest += `q=${title}`;
-    filteredRequest += `&subject=${category}`;
+    filteredRequest += category == "all" ? "" : `+subject:${category}`;
     filteredRequest += `&orderBy=${sortBy}`;
     filteredRequest += "&key=AIzaSyBFeGc1dlPmCJMD-uF2Z-8LxzsHA7r0owg";
+
+    debugger;
 
     return api.get(filteredRequest);
   };
