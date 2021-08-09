@@ -4,11 +4,6 @@ import {
   CLEAR_BOOKS_LIST,
 } from "../utils/actionTypes";
 
-interface GetBooksActionInterface {
-  booksArr: BooksArr;
-  totalBooks: number;
-}
-
 export const getBooksActionCreator = ({
   booksArr,
   totalBooks,
