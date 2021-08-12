@@ -1,6 +1,6 @@
 import createSagaMiddleware from 'redux-saga';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { watchGetBooks } from 'Middleware/saga';
+import watchGetBooks from 'Middleware/saga';
 import booksReducer from './reducers/books-reducer';
 
 const sageMiddleware = createSagaMiddleware();

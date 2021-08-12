@@ -1,7 +1,8 @@
-import { GET_BOOKS, CLEAR_BOOKS_LIST } from "Utils/actionTypes";
-import produce from "immer";
+import { GET_BOOKS, CLEAR_BOOKS_LIST } from 'Utils/ActionTypes';
+import { BooksState, Action } from 'Utils/custom-types';
+import produce from 'immer';
 
-let initState: BooksState = {
+const initState: BooksState = {
   booksArr: [],
   totalBooks: 0,
 };
@@ -13,6 +14,7 @@ const templateReducer = (state = initState, action: Action) => {
     case GET_BOOKS:
       stateCopy = produce(state, (newState: BooksState) => {
         newState.booksArr.push(...action.payload.booksArr);
+        // eslint-disable-next-line no-param-reassign
         newState.totalBooks = action.payload.totalBooks;
       });
 
@@ -20,6 +22,7 @@ const templateReducer = (state = initState, action: Action) => {
 
     case CLEAR_BOOKS_LIST:
       stateCopy = produce(state, (newState: BooksState) => {
+        // eslint-disable-next-line no-param-reassign
         newState.booksArr = [];
       });
 

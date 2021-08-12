@@ -1,13 +1,13 @@
-interface State {
+export interface State {
   books: BooksState;
 }
 
-interface BooksState {
+export interface BooksState {
   booksArr: BooksArr;
   totalBooks: number;
 }
 
-interface Book {
+export interface Book {
   id: string;
   title: string;
   image: string;
@@ -15,17 +15,17 @@ interface Book {
   authors: Array<string>;
 }
 
-type BooksArr = Array<Book>;
+export type BooksArr = Array<Book>;
 
-interface BooksSearchFilters {
+export interface BooksSearchFilters {
   title: string;
   category: string;
   sortBy: string;
 }
 
-//Actions
+// Actions
 
-interface Action {
+export interface Action {
   type: string;
   payload: {
     booksArr?: BooksArr;

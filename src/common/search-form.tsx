@@ -1,13 +1,13 @@
 import React from 'react';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import LabeledField from './labeled-field';
-import SearchField from './search-field';
 import {
   getBooksAsyncActionCreator,
   clearBooksListActionCreator,
 } from 'Actions/books-actions';
 import { setFilters } from 'API/google-books';
+import LabeledField from './components/labeled-field';
+import SearchField from './components/search-field';
 import './search-form.scss';
 
 const SearchForm = () => {
@@ -67,7 +67,7 @@ const SearchForm = () => {
           )}
         </Formik>
       </div>
-      <div className="search-form-bg"></div>
+      <div className="search-form-bg" />
     </section>
   );
 };

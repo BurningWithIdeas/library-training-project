@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common');
-const path = require('path');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',

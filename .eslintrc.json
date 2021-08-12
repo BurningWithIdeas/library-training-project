@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,6 +17,8 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "linebreak-style": ["error", "windows"],
     "import/extensions": [
       "error",
