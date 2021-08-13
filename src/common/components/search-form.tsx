@@ -1,37 +1,25 @@
-import React from "react";
-import { Formik } from "formik";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import Field from "./field";
-import LabeledField from "./labeled-field";
-import SearchField from "./search-field";
-import {
-  getBooksAsyncActionCreator,
-  clearBooksListActionCreator,
-} from "Actions/books-actions";
-import { setFilters } from "API/google-books";
-import "./search-form.scss";
+import React from 'react';
+import { Formik } from 'formik';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getBooksAsyncActionCreator, clearBooksListActionCreator } from 'Actions/books-actions';
+import { setFilters } from 'API/google-books';
+import LabeledField from './labeled-field';
+import SearchField from './search-field';
+import './search-form.scss';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const categoriesArr = [
-    "all",
-    "art",
-    "biography",
-    "computers",
-    "history",
-    "medical",
-    "poetry",
-  ];
+  const categoriesArr = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
   const categoryOptionsArr = categoriesArr.map((e) => (
     <option key={e} value={e}>
       {e}
     </option>
   ));
 
-  const sortByVariantsArr = ["relevance", "newest"];
+  const sortByVariantsArr = ['relevance', 'newest'];
   const sortByVariantOptionsArr = sortByVariantsArr.map((e) => (
     <option key={e} value={e}>
       {e}
@@ -43,21 +31,17 @@ const SearchForm = () => {
       <div className="search-form-container">
         <h2 className="search-form-container__title">Search for books</h2>
         <Formik
-          initialValues={{ title: "", category: "all", sortBy: "relevance" }}
+          initialValues={{ title: '', category: 'all', sortBy: 'relevance' }}
           onSubmit={(data) => {
             dispatch(clearBooksListActionCreator());
             setFilters(data);
             dispatch(getBooksAsyncActionCreator());
-            history.push("/search");
+            history.push('/search');
           }}
         >
           {({ handleSubmit }) => (
             <form className="search-form" onSubmit={handleSubmit}>
-              <SearchField
-                name="title"
-                placeholder="Type Book Name here..."
-                required
-              />
+              <SearchField name="title" placeholder="Type Book Name here..." required />
               <div className="search-form-filters">
                 <LabeledField as="select" name="category" label="Category">
                   {categoryOptionsArr}
@@ -71,7 +55,7 @@ const SearchForm = () => {
           )}
         </Formik>
       </div>
-      <div className="search-form-bg"></div>
+      <div className="search-form-bg" />
     </section>
   );
 };

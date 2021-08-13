@@ -1,19 +1,15 @@
-import React from "react";
+import React from 'react';
+import { BsSearch } from 'react-icons/bs';
+import Field from './field';
+import './search-field.scss';
 
-import Field from "./field";
-import { BsSearch } from "react-icons/bs";
-import "./search-field.scss";
-
-const SearchField = (props: any) => {
-  return (
-    <div className="search-field">
-      <Field {...props} />
-
-      <button className="search-field__button" type="submit">
-        <BsSearch />
-      </button>
-    </div>
-  );
-};
+const SearchField = (props: any) => (
+  <div className="search-field">
+    <Field {...props} />
+    <button className="search-field__button" type="submit">
+      <BsSearch />
+    </button>
+  </div>
+);
 
 export default SearchField;
