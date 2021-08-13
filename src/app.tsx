@@ -1,7 +1,7 @@
-import React from "react";
-import SearchPage from "./pages/search-page/search-page";
-import ItemPage from "./pages/item-page/item-page";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import SearchPage from './pages/search-page/search-page';
+import ItemPage from './pages/item-page/item-page';
 
 function App() {
   return (

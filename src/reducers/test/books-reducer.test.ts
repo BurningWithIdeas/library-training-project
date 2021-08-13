@@ -1,76 +1,73 @@
-import { getBooksActionCreator } from "Actions/books-actions";
-import { GET_BOOKS, CLEAR_BOOKS_LIST } from "Utils/actionTypes";
-import produce from "immer";
-import booksReducer from "../books-reducer";
+import { GET_BOOKS, CLEAR_BOOKS_LIST } from 'Utils/ActionTypes';
+import { GetBooksActionInterface, BooksState } from 'Utils/custom-types';
+import booksReducer from '../books-reducer';
 
-let payload: GetBooksActionInterface = {
+const payload: GetBooksActionInterface = {
   booksArr: [
     {
-      id: "2",
-      title: "title",
-      image: "img",
-      categories: ["category"],
-      authors: ["author"],
+      id: '2',
+      title: 'title',
+      image: 'img',
+      categories: ['category'],
+      authors: ['author'],
     },
   ],
 
   totalBooks: 10,
 };
 
-let oldState: BooksState = {
+const oldState: BooksState = {
   booksArr: [
     {
-      id: "1",
-      title: "title",
-      image: "img",
-      categories: ["category"],
-      authors: ["author"],
+      id: '1',
+      title: 'title',
+      image: 'img',
+      categories: ['category'],
+      authors: ['author'],
     },
   ],
   totalBooks: 0,
 };
 
-let newState: BooksState = {
+const newState: BooksState = {
   booksArr: [
     {
-      id: "1",
-      title: "title",
-      image: "img",
-      categories: ["category"],
-      authors: ["author"],
+      id: '1',
+      title: 'title',
+      image: 'img',
+      categories: ['category'],
+      authors: ['author'],
     },
     {
-      id: "2",
-      title: "title",
-      image: "img",
-      categories: ["category"],
-      authors: ["author"],
+      id: '2',
+      title: 'title',
+      image: 'img',
+      categories: ['category'],
+      authors: ['author'],
     },
   ],
   totalBooks: 10,
 };
 
-let cleanState: BooksState = {
+const cleanState: BooksState = {
   booksArr: [],
   totalBooks: 0,
 };
 
-let getBooksAction = {
+const getBooksAction = {
   type: GET_BOOKS,
-  payload: payload,
+  payload,
 };
 
-let clearBooksListAction = {
+const clearBooksListAction = {
   type: CLEAR_BOOKS_LIST,
   payload: {},
 };
 
-test("reducer adds books", () => {
+test('reducer adds books', () => {
   expect(booksReducer(oldState, getBooksAction)).toStrictEqual(newState);
 });
 
-test("reducer clears books list", () => {
-  expect(booksReducer(oldState, clearBooksListAction)).toStrictEqual(
-    cleanState
-  );
+test('reducer clears books list', () => {
+  expect(booksReducer(oldState, clearBooksListAction)).toStrictEqual(cleanState);
 });
