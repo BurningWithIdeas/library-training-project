@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { State } from 'Utils/custom-types';
-import SearchForm from 'Common/components/search-form';
+import SearchForm from 'Common/search-form';
 import ItemDescription from './components/item-description';
 
 const ItemPage = ({ match }: any) => {

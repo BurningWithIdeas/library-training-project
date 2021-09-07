@@ -2,7 +2,5 @@ import React from 'react';
 import { Field } from 'formik';
 import './field.scss';
 
-const CustomField = ({ name, type = 'input', ...props }: any) => (
-  <Field {...props} className="form-field" name={name} type={type} />
-);
+const CustomField = (props: any) => <Field {...props} className="form-field" />;
 export default CustomField;

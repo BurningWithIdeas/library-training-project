@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getBooksAsyncActionCreator, clearBooksListActionCreator } from 'Actions/books-actions';
 import { setFilters } from 'API/google-books';
-import LabeledField from './labeled-field';
-import SearchField from './search-field';
+import LabeledField from './components/labeled-field';
+import SearchField from './components/search-field';
 import './search-form.scss';
 
 const SearchForm = () => {
@@ -32,16 +32,32 @@ const SearchForm = () => {
         <h2 className="search-form-container__title">Search for books</h2>
         <Formik
           initialValues={{ title: '', category: 'all', sortBy: 'relevance' }}
-          onSubmit={(data) => {
+          validate={(values) => {
+            const errors: Record<string, string> = {};
+
+            if (values.title.length > 15) {
+              errors.title = 'Title is too long';
+            }
+
+            return errors;
+          }}
+          onSubmit={(data, { setSubmitting }) => {
+            setSubmitting(true);
             dispatch(clearBooksListActionCreator());
             setFilters(data);
             dispatch(getBooksAsyncActionCreator());
             history.push('/search');
+            setSubmitting(false);
           }}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, isSubmitting }) => (
             <form className="search-form" onSubmit={handleSubmit}>
-              <SearchField name="title" placeholder="Type Book Name here..." required />
+              <SearchField
+                name="title"
+                placeholder="Type Book Name here..."
+                required
+                isDisabled={isSubmitting}
+              />
               <div className="search-form-filters">
                 <LabeledField as="select" name="category" label="Category">
                   {categoryOptionsArr}
