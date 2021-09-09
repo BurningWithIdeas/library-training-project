@@ -1,19 +1,20 @@
-@import "Utils/variables.scss";
+@import 'Utils/variables.scss';
 
 .book-item {
-  width: 20%;
-  min-width: 250px;
+  width: 100%;
   height: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 20px 0;
 
   background-color: $item-bg-color;
 
   .book-item__image {
-    width: 70%;
-    margin-top: 20px;
+    height: 280px;
+    max-width: 70%;
+    object-fit: cover;
 
     box-shadow: 10px 5px 20px grey;
   }
@@ -25,6 +26,9 @@
     font-family: system-ui;
     font-weight: lighter;
     font-size: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .book-item__category {
@@ -33,7 +37,7 @@
 
   .book-item__name {
     color: black;
-    font-family: "coolvetica";
+    font-family: 'coolvetica';
     font-size: 1.4rem;
   }
 }
