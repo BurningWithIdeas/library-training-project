@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { State } from 'Utils/custom-types';
-import SearchForm from 'Common/search-form';
 import ItemDescription from './components/item-description';
 
 const ItemPage = ({ match }: any) => {
@@ -11,7 +10,6 @@ const ItemPage = ({ match }: any) => {
 
   return (
     <div className="item-page">
-      <SearchForm />
       <ItemDescription {...currentBook} />
     </div>
   );
