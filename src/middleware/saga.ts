@@ -1,7 +1,6 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { requestBooks } from 'API/google-books';
-import { ASYNC_GET_BOOKS } from 'Utils/ActionTypes';
-import { getBooksActionCreator } from 'Actions/books-actions';
+import { setBooks, getBooks } from 'Reducers/books-reducer';
 
 function* asyncGetBooks() {
   try {
@@ -15,7 +14,7 @@ function* asyncGetBooks() {
       authors: el.volumeInfo.authors,
     }));
 
-    yield put(getBooksActionCreator({ booksArr, totalBooks }));
+    yield put(setBooks({ booksArr, totalBooks }));
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log(e);
@@ -23,5 +22,5 @@ function* asyncGetBooks() {
 }
 
 export default function* watchGetBooks() {
-  yield takeLatest(ASYNC_GET_BOOKS, asyncGetBooks);
+  yield takeLatest(getBooks.type, asyncGetBooks);
 }

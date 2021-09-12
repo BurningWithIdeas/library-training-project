@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { State, Book } from 'Utils/custom-types';
-import { getBooksAsyncActionCreator } from 'Actions/books-actions';
+import { getBooks } from 'Reducers/books-reducer';
 import BookItem from './book-item';
 import './books-list.scss';
 
@@ -20,7 +20,7 @@ const BooksList = () => {
         <button
           type="button"
           className="books-list-wrapper__button"
-          onClick={() => dispatch(getBooksAsyncActionCreator())}
+          onClick={() => dispatch(getBooks())}
         >
           Show more
         </button>
