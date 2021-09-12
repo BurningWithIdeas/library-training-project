@@ -18,6 +18,7 @@
       "Middleware/*": ["src/middleware/*"],
       "Common/*": ["src/common/*"],
       "Utils/*": ["src/utils/*"],
+      "Reducers/*": ["src/reducers/*"],
       "Assets/*": ["public/assets/*"],
       "Fonts/*": ["public/fonts/*"]
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getBooksAsyncActionCreator, clearBooksListActionCreator } from 'Actions/books-actions';
+import { clearBooksList, getBooks } from 'Reducers/books-reducer';
 import { setFilters } from 'API/google-books';
 import LabeledField from './components/labeled-field';
 import SearchField from './components/search-field';
@@ -43,9 +43,9 @@ const SearchForm = () => {
           }}
           onSubmit={(data, { setSubmitting }) => {
             setSubmitting(true);
-            dispatch(clearBooksListActionCreator());
+            dispatch(clearBooksList());
             setFilters(data);
-            dispatch(getBooksAsyncActionCreator());
+            dispatch(getBooks());
             history.push('/search');
             setSubmitting(false);
           }}
